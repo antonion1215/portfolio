@@ -74,6 +74,17 @@
 
 - コピーライト `© 2026 Yusuke Yamahara`
 
+## アニメーション方針（GSAP / ScrollTrigger）
+
+ミニマルデザインに合わせ「控えめで上品」な動きにする。CDN版 GSAP 3.11.3 + ScrollTrigger を使用。
+
+- Hero: 読み込み時に label → copy → line → name → actions を順にフェードアップ（stagger）
+- 各セクション見出し（ラベル＋タイトル）: スクロールで表示されたらフェードアップ
+- カード類（Skills / Works）: スクロールで順番にフェードアップ（stagger）
+- Service本文・Contactフォーム: スクロールでフェードアップ
+- **プログレッシブエンハンスメント**: GSAP未読込時はアニメーションせずコンテンツをそのまま表示
+- `prefers-reduced-motion: reduce` の場合はアニメーションを無効化
+
 ## レスポンシブ方針
 
 - モバイルファースト（スマホ基準、PCは `@media screen and (min-width: 1080px)` で拡張）
