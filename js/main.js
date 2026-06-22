@@ -42,23 +42,25 @@ if (typeof gsap !== 'undefined' && !prefersReducedMotion) {
   const ease = 'power2.out';
   const distance = 24;
 
-  // Hero：読み込み時に各要素を順番にフェードアップ
-  gsap.from(
-    [
-      '.top_kv_label',
-      '.top_kv_copy',
-      '.top_kv_line',
-      '.top_kv_name',
-      '.top_kv_actions',
-    ],
-    {
-      y: distance,
-      opacity: 0,
-      duration: 0.8,
-      ease,
-      stagger: 0.12,
-    }
-  );
+  // Hero：読み込み時に各要素を順番にフェードアップ（Heroがあるページのみ）
+  if (document.querySelector('.top_kv')) {
+    gsap.from(
+      [
+        '.top_kv_label',
+        '.top_kv_copy',
+        '.top_kv_line',
+        '.top_kv_name',
+        '.top_kv_actions',
+      ],
+      {
+        y: distance,
+        opacity: 0,
+        duration: 0.8,
+        ease,
+        stagger: 0.12,
+      }
+    );
+  }
 
   // 各セクション見出し（ラベル＋タイトル）：スクロールで表示されたらフェードアップ
   gsap.utils.toArray('.m_section-label').forEach((label) => {

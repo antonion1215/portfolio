@@ -594,3 +594,162 @@ a:hover {
   color: var(--gray-color02);
   letter-spacing: 0.06em;
 }
+
+/* ---------- 実績一覧ページ（works.html） ---------- */
+.works_head {
+  padding: 64px 0 32px;
+}
+
+@media screen and (min-width: 1080px) {
+  .works_head {
+    padding: 96px 0 48px;
+  }
+}
+
+.works_head_lead {
+  font-size: 15px;
+  color: var(--gray-color);
+  max-width: 640px;
+}
+
+.works_list {
+  padding: 0 0 64px;
+}
+
+@media screen and (min-width: 1080px) {
+  .works_list {
+    padding: 0 0 96px;
+  }
+}
+
+.works_back {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ---------- サービスページ（service.html） ---------- */
+.service_head {
+  padding: 64px 0 32px;
+}
+
+@media screen and (min-width: 1080px) {
+  .service_head {
+    padding: 96px 0 48px;
+  }
+}
+
+.service_head_lead {
+  font-size: 15px;
+  color: var(--gray-color);
+  max-width: 640px;
+}
+
+/* ページ内のブロック見出し（サービス内容・料金プラン） */
+.service_block-title {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 1080px) {
+  .service_block-title {
+    font-size: 24px;
+  }
+}
+
+.service_items {
+  padding: 32px 0;
+  border-top: 1px solid var(--gray-color03);
+}
+
+.service_plans {
+  padding: 48px 0;
+  border-top: 1px solid var(--gray-color03);
+  background-color: var(--white-color);
+}
+
+.service_cta {
+  padding: 64px 0;
+  border-top: 1px solid var(--gray-color03);
+  text-align: center;
+}
+
+.service_cta_text {
+  font-size: 15px;
+  color: var(--gray-color);
+  margin-bottom: 24px;
+}
+
+/* サービスカード */
+.m_service-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .m_service-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+.m_service-card {
+  border: 1px solid var(--gray-color03);
+  padding: 24px 20px;
+}
+
+.m_service-card_title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.m_service-card_text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--gray-color);
+}
+
+/* 料金プラン */
+.m_plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .m_plans {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+.m_plan-card {
+  border: 1px solid var(--gray-color03);
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.m_plan-card__highlight {
+  border-color: var(--black-color);
+  background-color: var(--primary-color);
+}
+
+.m_plan-card_name {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--gray-color02);
+  margin-bottom: 16px;
+}
+
+.m_plan-card_price {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.m_plan-card_note {
+  font-size: 12px;
+  color: var(--gray-color);
+}
