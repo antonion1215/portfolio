@@ -492,6 +492,80 @@ a:hover {
   letter-spacing: 0.08em;
 }
 
+/* 実績カード（掲載済み） */
+.m_work-card__filled {
+  border: 1px solid var(--gray-color03);
+  background-color: var(--white-color);
+  transition: box-shadow var(--transition);
+}
+
+.m_work-card__filled:hover {
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.1);
+}
+
+.m_work-card_link {
+  display: block;
+  height: 100%;
+}
+
+.m_work-card_link:hover {
+  opacity: 1;
+}
+
+.m_work-card_thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(184, 154, 94, 0.2), transparent 60%),
+    linear-gradient(155deg, #0f1e3d 0%, #0a1529 100%);
+}
+
+.m_work-card_thumb-jp {
+  font-family: var(--font-serif);
+  font-size: 52px;
+  color: #cbb27e;
+  line-height: 1;
+}
+
+.m_work-card_thumb-en {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.m_work-card_body {
+  display: block;
+  padding: 20px 18px 24px;
+}
+
+.m_work-card_cat {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--gray-color02);
+}
+
+.m_work-card_title {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.m_work-card_desc {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--gray-color);
+}
+
 .top_works_more {
   text-align: center;
 }
