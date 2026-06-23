@@ -19,15 +19,42 @@ document.querySelectorAll('.js_nav-link').forEach((link) => {
   link.addEventListener('click', () => toggleMenu(true));
 });
 
-/*---------- お問い合わせフォーム（送信機能は準備中） ----------*/
+/*---------- お問い合わせフォーム（Web3Forms） ----------*/
+const form = document.querySelector('.js_form');
 const formSubmit = document.querySelector('.js_form-submit');
 const formNote = document.querySelector('.js_form-note');
 
-if (formSubmit && formNote) {
-  formSubmit.addEventListener('click', (e) => {
-    // 送信先未設定のため送信を抑止し、準備中メッセージを表示する
+if (form && formSubmit && formNote) {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    formNote.hidden = false;
+
+    formSubmit.disabled = true;
+    formSubmit.textContent = '送信中...';
+    formNote.hidden = true;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        formNote.textContent = '送信しました。3営業日以内にご返信いたします。';
+        formNote.dataset.state = 'success';
+        formNote.hidden = false;
+        form.reset();
+      } else {
+        throw new Error(json.message);
+      }
+    } catch {
+      formNote.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      formNote.dataset.state = 'error';
+      formNote.hidden = false;
+    } finally {
+      formSubmit.disabled = false;
+      formSubmit.textContent = '送信する';
+    }
   });
 }
 

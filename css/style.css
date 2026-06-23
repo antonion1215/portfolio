@@ -581,6 +581,19 @@ a:hover {
   text-align: center;
 }
 
+.m_form_note[data-state="success"] {
+  color: #6ee7b7;
+}
+
+.m_form_note[data-state="error"] {
+  color: #fca5a5;
+}
+
+.js_form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* ---------- フッター ---------- */
 .l_footer {
   background-color: var(--black-color);
