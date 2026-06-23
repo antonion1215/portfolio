@@ -155,22 +155,26 @@
       <div class="l_container">
         <p class="m_section-label m_section-label__light">CONTACT</p>
         <h2 class="m_section-title m_section-title__light">お問い合わせ</h2>
-        <!-- 送信機能は未実装（UIのみ）。将来 Formspree 等の action を設定する -->
-        <form class="m_form" novalidate>
+        <form class="m_form js_form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms 設定 -->
+          <input type="hidden" name="access_key" value="422e645c-e809-4c3a-91f1-bcff95c2355c">
+          <input type="hidden" name="subject" value="ポートフォリオからのお問い合わせ">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
           <div class="m_form_field">
-            <label class="m_form_label" for="name">お名前</label>
+            <label class="m_form_label" for="name">お名前 <span aria-hidden="true">*</span></label>
             <input class="m_form_input" type="text" id="name" name="name" required>
           </div>
           <div class="m_form_field">
-            <label class="m_form_label" for="email">メールアドレス</label>
+            <label class="m_form_label" for="email">メールアドレス <span aria-hidden="true">*</span></label>
             <input class="m_form_input" type="email" id="email" name="email" required>
           </div>
           <div class="m_form_field">
-            <label class="m_form_label" for="message">お問い合わせ内容</label>
+            <label class="m_form_label" for="message">お問い合わせ内容 <span aria-hidden="true">*</span></label>
             <textarea class="m_form_input m_form_input__textarea" id="message" name="message" rows="6" required></textarea>
           </div>
           <button type="submit" class="m_btn m_btn__fill m_btn__light m_btn__block js_form-submit">送信する</button>
-          <p class="m_form_note js_form-note" hidden>※お問い合わせ機能は準備中です。</p>
+          <p class="m_form_note js_form-note" hidden></p>
         </form>
       </div>
     </section>
