@@ -463,6 +463,7 @@ a:hover {
 .m_works {
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
   gap: 12px;
   margin-bottom: 32px;
 }
@@ -476,10 +477,14 @@ a:hover {
 
 .m_work-card {
   border: 1px solid var(--gray-color03);
+  /* グリッド内でサムネイルの aspect-ratio が列幅へ干渉するのを防ぎ、等幅を保つ */
+  min-width: 0;
 }
 
 .m_work-card__empty {
-  aspect-ratio: 4 / 3;
+  /* グリッドの行揃え（grid-auto-rows:1fr）で掲載済みカードと高さを統一する。
+     aspect-ratio で高さを固定すると stretch が効かないため min-height で最低高さのみ確保 */
+  min-height: 220px;
   background-color: var(--primary-color);
   display: flex;
   align-items: center;
