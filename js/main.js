@@ -19,7 +19,20 @@ document.querySelectorAll('.js_nav-link').forEach((link) => {
   link.addEventListener('click', () => toggleMenu(true));
 });
 
-/*---------- お問い合わせフォーム（Web3Forms） ----------*/
+/*---------- FAQアコーディオン ----------*/
+// 開閉の高さ変化は CSS（grid-template-rows）の transition に任せ、JSは状態クラスの切り替えのみ行う
+document.querySelectorAll('.js_faq').forEach((faq) => {
+  const question = faq.querySelector('.js_faq-q');
+
+  question.addEventListener('click', () => {
+    const willOpen = !faq.classList.contains('is-active');
+
+    faq.classList.toggle('is-active', willOpen);
+    question.setAttribute('aria-expanded', String(willOpen));
+  });
+});
+
+/*---------- 無料相談フォーム（Web3Forms） ----------*/
 const form = document.querySelector('.js_form');
 const formSubmit = document.querySelector('.js_form-submit');
 const formNote = document.querySelector('.js_form-note');
@@ -40,7 +53,7 @@ if (form && formSubmit && formNote) {
       const json = await res.json();
 
       if (json.success) {
-        formNote.textContent = '送信しました。3営業日以内にご返信いたします。';
+        formNote.textContent = '送信ありがとうございます。24時間以内にご返信いたします。';
         formNote.dataset.state = 'success';
         formNote.hidden = false;
         form.reset();
@@ -53,7 +66,7 @@ if (form && formSubmit && formNote) {
       formNote.hidden = false;
     } finally {
       formSubmit.disabled = false;
-      formSubmit.textContent = '送信する';
+      formSubmit.textContent = '無料相談を送信する';
     }
   });
 }
@@ -63,33 +76,22 @@ if (form && formSubmit && formNote) {
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (typeof gsap !== 'undefined' && !prefersReducedMotion) {
+  gsap.config({
+    nullTargetWarn: false,
+  });
   gsap.registerPlugin(ScrollTrigger);
 
-  // 共通設定
-  const ease = 'power2.out';
-  const distance = 24;
+  // Hero：読み込み時にラベル → コピー → サブ → CTA → 分岐バナーを重ねながら流す
+  gsap
+    .timeline({ defaults: { ease: 'power3.out' } })
+    .from('.js_hero-label', { autoAlpha: 0, y: 12, duration: 0.6 })
+    .from('.js_hero-copy', { autoAlpha: 0, y: 24, duration: 0.9 }, '-=0.3')
+    .from('.js_hero-sub', { autoAlpha: 0, y: 16, duration: 0.6 }, '-=0.5')
+    .from('.js_hero-actions', { autoAlpha: 0, scale: 0.96, duration: 0.5 }, '-=0.3')
+    .from('.js_hero-note', { autoAlpha: 0, duration: 0.5 }, '-=0.25')
+    .from('.js_hero-branch', { autoAlpha: 0, y: 16, duration: 0.6 }, '-=0.35');
 
-  // Hero：読み込み時に各要素を順番にフェードアップ（Heroがあるページのみ）
-  if (document.querySelector('.top_kv')) {
-    gsap.from(
-      [
-        '.top_kv_label',
-        '.top_kv_copy',
-        '.top_kv_line',
-        '.top_kv_name',
-        '.top_kv_actions',
-      ],
-      {
-        y: distance,
-        opacity: 0,
-        duration: 0.8,
-        ease,
-        stagger: 0.12,
-      }
-    );
-  }
-
-  // 各セクション見出し（ラベル＋タイトル）：スクロールで表示されたらフェードアップ
+  // 各セクション見出し（ラベル＋タイトル）：控えめにフェードアップ
   gsap.utils.toArray('.m_section-label').forEach((label) => {
     const title = label.nextElementSibling;
     gsap.from([label, title], {
@@ -97,43 +99,137 @@ if (typeof gsap !== 'undefined' && !prefersReducedMotion) {
         trigger: label,
         start: 'top 85%',
       },
-      y: distance,
-      opacity: 0,
-      duration: 0.7,
-      ease,
+      autoAlpha: 0,
+      y: 16,
+      duration: 0.6,
+      ease: 'power2.out',
       stagger: 0.1,
     });
   });
 
-  // カード類（Skills / Works）：スクロールで順番にフェードアップ
-  ['.m_skills', '.m_works'].forEach((listSelector) => {
-    const list = document.querySelector(listSelector);
-    if (!list) return;
-
-    gsap.from(list.children, {
-      scrollTrigger: {
-        trigger: list,
-        start: 'top 80%',
-      },
-      y: distance,
-      opacity: 0,
-      duration: 0.6,
-      ease,
-      stagger: 0.08,
-    });
+  // 悩みカード：下から順に浮かせる
+  gsap.from('.m_pain-list_item', {
+    scrollTrigger: {
+      trigger: '.m_pain-list',
+      start: 'top 80%',
+    },
+    autoAlpha: 0,
+    y: 20,
+    duration: 0.6,
+    ease: 'power3.out',
+    stagger: 0.1,
   });
 
-  // Service / Contact の本文ブロック：スクロールでフェードアップ
-  gsap.utils.toArray('.top_service_lead, .m_form').forEach((el) => {
-    gsap.from(el, {
+  // 橋渡し文：カードの後にタメを作って見せる
+  gsap.from('.top_pain_bridge', {
+    scrollTrigger: {
+      trigger: '.top_pain_bridge',
+      start: 'top 88%',
+    },
+    autoAlpha: 0,
+    y: 12,
+    duration: 0.7,
+    ease: 'power2.out',
+  });
+
+  // 理由カード：番号付きリストの流れとして左からスライドイン
+  gsap.from('.m_reason-card', {
+    scrollTrigger: {
+      trigger: '.m_reasons',
+      start: 'top 80%',
+    },
+    autoAlpha: 0,
+    x: -32,
+    duration: 0.7,
+    ease: 'power3.out',
+    stagger: 0.12,
+  });
+
+  // サービスカード：2×2グリッドを順に浮かせる
+  gsap.from('.m_service-card', {
+    scrollTrigger: {
+      trigger: '.m_services',
+      start: 'top 80%',
+    },
+    autoAlpha: 0,
+    y: 24,
+    duration: 0.6,
+    ease: 'power3.out',
+    stagger: { amount: 0.4 },
+  });
+
+  // 料金行：表として静かに現す（動きは最小限）
+  gsap.from('.m_price_row', {
+    scrollTrigger: {
+      trigger: '.m_price',
+      start: 'top 80%',
+    },
+    autoAlpha: 0,
+    y: 12,
+    duration: 0.5,
+    ease: 'power2.out',
+    stagger: 0.08,
+  });
+
+  // 制作の流れ：工程の進行方向（左→右）に合わせてスライドイン
+  gsap.from('.m_flow_step', {
+    scrollTrigger: {
+      trigger: '.m_flow',
+      start: 'top 80%',
+    },
+    autoAlpha: 0,
+    x: -24,
+    duration: 0.6,
+    ease: 'power3.out',
+    stagger: 0.1,
+  });
+
+  // 実績カード：画像モジュールとしてわずかなズームアウトで見せる
+  gsap.from('.m_work-card', {
+    scrollTrigger: {
+      trigger: '.m_works',
+      start: 'top 80%',
+    },
+    autoAlpha: 0,
+    scale: 1.04,
+    duration: 0.9,
+    ease: 'power2.out',
+  });
+
+  // About：写真と本文を左右から寄せる
+  gsap
+    .timeline({
+      defaults: { ease: 'power3.out' },
       scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
+        trigger: '.top_about_body',
+        start: 'top 80%',
       },
-      y: distance,
-      opacity: 0,
-      duration: 0.7,
-      ease,
-    });
+    })
+    .from('.js_about-photo', { autoAlpha: 0, scale: 0.92, duration: 0.7 })
+    .from('.js_about-text', { autoAlpha: 0, x: 24, duration: 0.7 }, '-=0.45');
+
+  // FAQ：行として静かに現す
+  gsap.from('.m_faq', {
+    scrollTrigger: {
+      trigger: '.m_faq-list',
+      start: 'top 80%',
+    },
+    autoAlpha: 0,
+    y: 12,
+    duration: 0.5,
+    ease: 'power2.out',
+    stagger: 0.06,
+  });
+
+  // フォーム：締めのセクションとして浮かせる
+  gsap.from('.m_form', {
+    scrollTrigger: {
+      trigger: '.m_form',
+      start: 'top 85%',
+    },
+    autoAlpha: 0,
+    y: 24,
+    duration: 0.7,
+    ease: 'power3.out',
   });
 }

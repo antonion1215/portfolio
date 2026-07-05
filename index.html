@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>山原佑介 | Web Creator Portfolio</title>
-  <meta name="description" content="フリーランスWeb制作者 山原佑介のポートフォリオ。丁寧なものづくりで、想いをカタチにします。Webサイト制作・LP制作・SEO対策・WordPress構築・機能開発まで対応します。">
+  <!-- TODO(T-1): 屋号決定後、title・OGP・ロゴ・フッターの名義を一括差し替え -->
+  <title>中小企業・店舗のためのWebサイト制作 | 山原佑介</title>
+  <meta name="description" content="中小企業・個人事業主・飲食店のためのWebサイト制作。IT企業で上流工程を担う現役エンジニアが、要件整理から公開までワンストップで対応。コーポレートサイト30万円から。平日夜・土日の打ち合わせに対応します。">
 
   <!-- OGP -->
-  <meta property="og:title" content="山原佑介 | Web Creator Portfolio">
-  <meta property="og:description" content="フリーランスWeb制作者 山原佑介のポートフォリオ。丁寧なものづくりで、想いをカタチにします。">
+  <meta property="og:title" content="中小企業・店舗のためのWebサイト制作 | 山原佑介">
+  <meta property="og:description" content="IT企業で上流工程を担う現役エンジニアが、要件整理から公開までワンストップで対応。コーポレートサイト30万円から。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://antonion1215.github.io/portfolio/">
   <meta property="og:image" content="https://antonion1215.github.io/portfolio/img/ogp.jpg">
-  <meta property="og:site_name" content="山原佑介 Portfolio">
+  <meta property="og:site_name" content="山原佑介 Webサイト制作">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- favicon -->
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/reset.css">
@@ -37,11 +41,15 @@
 
       <nav class="l_header-nav js_nav">
         <ul class="l_header-nav_list">
-          <li class="l_header-nav_item"><a href="#about" class="l_header-nav_link js_nav-link">ABOUT</a></li>
-          <li class="l_header-nav_item"><a href="#skills" class="l_header-nav_link js_nav-link">SKILLS</a></li>
-          <li class="l_header-nav_item"><a href="#works" class="l_header-nav_link js_nav-link">WORKS</a></li>
-          <li class="l_header-nav_item"><a href="#service" class="l_header-nav_link js_nav-link">SERVICE</a></li>
-          <li class="l_header-nav_item"><a href="#contact" class="l_header-nav_link js_nav-link">CONTACT</a></li>
+          <li class="l_header-nav_item"><a href="#pain" class="l_header-nav_link js_nav-link">お悩み</a></li>
+          <li class="l_header-nav_item"><a href="#service" class="l_header-nav_link js_nav-link">サービス</a></li>
+          <li class="l_header-nav_item"><a href="#price" class="l_header-nav_link js_nav-link">料金</a></li>
+          <li class="l_header-nav_item"><a href="#flow" class="l_header-nav_link js_nav-link">制作の流れ</a></li>
+          <li class="l_header-nav_item"><a href="#works" class="l_header-nav_link js_nav-link">実績</a></li>
+          <li class="l_header-nav_item"><a href="#faq" class="l_header-nav_link js_nav-link">FAQ</a></li>
+          <li class="l_header-nav_item l_header-nav_item__cta">
+            <a href="#contact" class="m_btn m_btn__cta js_nav-link">無料相談</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -50,127 +58,323 @@
   <main>
 
     <!-- ========== Hero ========== -->
-    <section class="top_kv">
-      <div class="top_kv_inner">
-        <p class="top_kv_label">WEB CREATOR</p>
-        <h1 class="top_kv_copy">丁寧なものづくりで、<br>想いをカタチに。</h1>
-        <span class="top_kv_line"></span>
-        <p class="top_kv_name">フリーランス Web制作 / 山原 佑介</p>
-        <div class="top_kv_actions">
-          <a href="works.html" class="m_btn m_btn__fill">実績を見る</a>
-          <a href="#contact" class="m_btn m_btn__outline">お問い合わせ</a>
+    <section class="top_hero">
+      <div class="top_hero_inner">
+        <p class="top_hero_label js_hero-label">中小企業・個人事業主・飲食店のための Webサイト制作</p>
+        <h1 class="top_hero_copy js_hero-copy">「制作会社は高い」を、<br>あきらめない。</h1>
+        <p class="top_hero_sub js_hero-sub">IT企業で上流工程を担う現役エンジニアが、<br class="u_md-up-br">要件整理から公開までまるごと。コーポレートサイト30万円から。</p>
+        <div class="top_hero_actions js_hero-actions">
+          <a href="#contact" class="m_btn m_btn__cta m_btn__lg">無料で相談する</a>
+          <a href="#works" class="m_btn m_btn__outline m_btn__lg">実績を見る</a>
         </div>
+        <p class="top_hero_note js_hero-note">平日夜・土日も打ち合わせ可能 ／ お見積り無料</p>
+      </div>
+
+      <div class="top_hero_branch js_hero-branch">
+        <a href="#service-shop" class="top_hero_branch_link">
+          <span class="top_hero_branch_target">飲食店・個人事業主の方</span>
+          <span class="top_hero_branch_text">お店・事務所のサイトを持ちたい →</span>
+        </a>
+        <a href="#service-corporate" class="top_hero_branch_link">
+          <span class="top_hero_branch_target">企業サイトをご検討の方</span>
+          <span class="top_hero_branch_text">コーポレート・採用サイトを作りたい →</span>
+        </a>
       </div>
     </section>
 
-    <!-- ========== About ========== -->
-    <section id="about" class="top_about">
+    <!-- ========== Pain（こんなお悩みありませんか） ========== -->
+    <section id="pain" class="top_pain">
       <div class="l_container">
-        <p class="m_section-label">ABOUT</p>
-        <h2 class="m_section-title">About Me</h2>
-        <div class="top_about_body">
-          <div class="top_about_photo">
-            <!-- TODO: プロフィール写真に差し替え（img/profile.jpg 等） -->
-            <span class="top_about_photo-placeholder">写真</span>
-          </div>
-          <div class="top_about_text">
-            <!-- TODO: 自己紹介テキストに差し替え -->
-            <p>はじめまして、Web制作者の山原佑介です。「丁寧なものづくり」を信条に、お客様の想いを一つひとつ汲み取りながらWebサイトを制作しています。</p>
-            <p>見た目の美しさだけでなく、伝わる・成果につながるサイトづくりを大切にしています。小さなご相談から、お気軽にお声がけください。</p>
-          </div>
-        </div>
+        <p class="m_section-label">PROBLEM</p>
+        <h2 class="m_section-title">こんなお悩みありませんか</h2>
+        <ul class="m_pain-list">
+          <li class="m_pain-list_item">制作会社に見積りを取ったら、<strong>予算を大きく超えていた</strong></li>
+          <li class="m_pain-list_item">何をどう頼めばいいのか、<strong>そもそも分からない</strong></li>
+          <li class="m_pain-list_item">日中は仕事や店のことで手一杯。<strong>打ち合わせの時間が取れない</strong></li>
+          <li class="m_pain-list_item">以前業者に頼んだが、<strong>納品後に相談できる相手がいなくなった</strong></li>
+        </ul>
+        <p class="top_pain_bridge">そのお悩み、すべて仕組みで解決できます。</p>
       </div>
     </section>
 
-    <!-- ========== Skills（できること） ========== -->
-    <section id="skills" class="top_skills">
+    <!-- ========== Reason（選ばれる理由） ========== -->
+    <section id="reason" class="top_reason">
       <div class="l_container">
-        <p class="m_section-label">SKILLS</p>
-        <h2 class="m_section-title">できること</h2>
-        <ul class="m_skills">
-          <li class="m_skill-card">
-            <h3 class="m_skill-card_title">Webサイト制作</h3>
-            <p class="m_skill-card_text">コーポレート・ポートフォリオ等のサイト制作</p>
+        <p class="m_section-label">REASON</p>
+        <h2 class="m_section-title">選ばれる理由</h2>
+        <ol class="m_reasons">
+          <li class="m_reason-card">
+            <span class="m_reason-card_num">01</span>
+            <div class="m_reason-card_body">
+              <h3 class="m_reason-card_title">現役エンジニアが直接担当</h3>
+              <p class="m_reason-card_text">普段はIT企業で要件定義・設計などの上流工程と、AWSでの開発・運用を担当しています。その品質を、そのまま個人のお客様に。</p>
+            </div>
           </li>
-          <li class="m_skill-card">
-            <h3 class="m_skill-card_title">LP制作</h3>
-            <p class="m_skill-card_text">成果につながるランディングページ</p>
+          <li class="m_reason-card">
+            <span class="m_reason-card_num">02</span>
+            <div class="m_reason-card_body">
+              <h3 class="m_reason-card_title">要件整理からお任せOK</h3>
+              <p class="m_reason-card_text">「何を頼めばいいか分からない」状態からで大丈夫です。ご要望を伺い、要件に整理するところから始めます。</p>
+            </div>
           </li>
-          <li class="m_skill-card">
-            <h3 class="m_skill-card_title">SEO対策</h3>
-            <p class="m_skill-card_text">検索で見つけてもらう内部最適化</p>
+          <li class="m_reason-card">
+            <span class="m_reason-card_num">03</span>
+            <div class="m_reason-card_body">
+              <h3 class="m_reason-card_title">制作会社より安い、理由がある</h3>
+              <p class="m_reason-card_text">営業やディレクターを介さない1人体制。間接コストがない分、同じ品質を抑えた価格でご提供できます。</p>
+            </div>
           </li>
-          <li class="m_skill-card">
-            <h3 class="m_skill-card_title">レスポンシブ対応</h3>
-            <p class="m_skill-card_text">スマホ・PCに最適化した表示</p>
+          <li class="m_reason-card">
+            <span class="m_reason-card_num">04</span>
+            <div class="m_reason-card_body">
+              <h3 class="m_reason-card_title">平日夜・土日に打ち合わせ</h3>
+              <p class="m_reason-card_text">経営者・店主の方の生活時間に合わせて対応します。営業時間や業務を止めていただく必要はありません。</p>
+            </div>
           </li>
-          <li class="m_skill-card">
-            <h3 class="m_skill-card_title">WordPress構築</h3>
-            <p class="m_skill-card_text">更新しやすいCMSの導入</p>
+          <li class="m_reason-card">
+            <span class="m_reason-card_num">05</span>
+            <div class="m_reason-card_body">
+              <h3 class="m_reason-card_title">納期と進捗を隠さない</h3>
+              <p class="m_reason-card_text">ご契約前に納期を確定し、制作中は毎週進捗をご報告します。「今どうなっているのか」という不安をなくします。</p>
+            </div>
           </li>
-          <li class="m_skill-card m_skill-card__highlight">
-            <h3 class="m_skill-card_title">機能開発（AWS）</h3>
-            <p class="m_skill-card_text">データ処理・認証などの機能実装</p>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== Service（サービス内容） ========== -->
+    <section id="service" class="top_service">
+      <div class="l_container">
+        <p class="m_section-label">SERVICE</p>
+        <h2 class="m_section-title">サービス内容</h2>
+        <ul class="m_services">
+          <li id="service-corporate" class="m_service-card">
+            <h3 class="m_service-card_title">コーポレートサイト制作</h3>
+            <p class="m_service-card_text">会社の信用をつくる、名刺代わりの1本。目的の整理から構成・デザイン・公開まで一括で担当します。</p>
+            <p class="m_service-card_foot">スマホ対応・SEO内部対策・WordPress更新環境 標準対応</p>
           </li>
-          <li class="m_skill-card m_skill-card__highlight">
-            <h3 class="m_skill-card_title">AI活用開発</h3>
-            <p class="m_skill-card_text">AIを使った開発サポート・効率化</p>
+          <li id="service-recruit" class="m_service-card">
+            <h3 class="m_service-card_title">採用サイト制作</h3>
+            <p class="m_service-card_text">求人媒体に頼らない自社採用の入口に。求職者の目線で「ここで働く理由」が伝わる構成から設計します。</p>
+            <p class="m_service-card_foot">スマホ対応・SEO内部対策・WordPress更新環境 標準対応</p>
+          </li>
+          <li id="service-shop" class="m_service-card">
+            <h3 class="m_service-card_title">店舗サイト制作</h3>
+            <p class="m_service-card_text">メニュー・アクセス・予約導線を整理し、「行ってみたい」を来店につなげます。飲食店・サロンなどに。</p>
+            <p class="m_service-card_foot">スマホ対応・SEO内部対策・WordPress更新環境 標準対応</p>
+          </li>
+          <li id="service-dev" class="m_service-card">
+            <h3 class="m_service-card_title">機能開発（予約・フォーム・自動化）</h3>
+            <p class="m_service-card_text">予約受付・自動返信・お知らせ配信など、サイトに業務の仕組みを追加します。クラウド（AWS）で構築します。</p>
+            <p class="m_service-card_foot">既存サイトへの機能追加のみのご相談も可能</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ========== Works（抜粋） ========== -->
+    <!-- ========== Price（料金） ========== -->
+    <section id="price" class="top_price">
+      <div class="l_container">
+        <p class="m_section-label">PRICE</p>
+        <h2 class="m_section-title">料金</h2>
+        <ul class="m_price">
+          <li class="m_price_row">
+            <div class="m_price_head">
+              <h3 class="m_price_name">コーポレートサイト制作</h3>
+              <p class="m_price_value">300,000<span class="m_price_unit">円〜</span></p>
+            </div>
+            <p class="m_price_desc">ヒアリング・要件整理／デザイン／実装／スマホ対応／SEO内部対策／サーバー公開まで一式</p>
+          </li>
+          <li class="m_price_row">
+            <div class="m_price_head">
+              <h3 class="m_price_name">採用サイト・店舗サイト制作</h3>
+              <p class="m_price_value m_price_value__text">個別お見積り</p>
+            </div>
+            <p class="m_price_desc">上記と同じ内容・同じ積算基準でお見積りします</p>
+          </li>
+          <li class="m_price_row">
+            <div class="m_price_head">
+              <h3 class="m_price_name">機能追加</h3>
+              <p class="m_price_value">+50,000<span class="m_price_unit">円〜/件</span></p>
+            </div>
+            <p class="m_price_desc">予約フォーム・自動通知など、1機能ごとの積み上げ式</p>
+          </li>
+          <li class="m_price_row">
+            <div class="m_price_head">
+              <h3 class="m_price_name">WordPress構築</h3>
+              <p class="m_price_value m_price_value__text">オプション</p>
+            </div>
+            <p class="m_price_desc">ご自身でお知らせや写真を更新できるCMS化</p>
+          </li>
+        </ul>
+        <ul class="top_price_notes">
+          <li class="top_price_notes_item">お見積りは無料です</li>
+          <li class="top_price_notes_item">追加費用は着手前に必ず事前提示します。事後請求はありません</li>
+          <li class="top_price_notes_item">ページ数・機能により変動します。まずは概算をお出しします</li>
+        </ul>
+        <div class="top_price_cta">
+          <a href="#contact" class="m_btn m_btn__cta m_btn__lg">無料で見積りを依頼する</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Flow（制作の流れ） ========== -->
+    <section id="flow" class="top_flow">
+      <div class="l_container">
+        <p class="m_section-label">FLOW</p>
+        <h2 class="m_section-title">制作の流れ</h2>
+        <ol class="m_flow">
+          <li class="m_flow_step">
+            <span class="m_flow_num">1</span>
+            <h3 class="m_flow_title">無料相談</h3>
+            <p class="m_flow_text">フォームからご連絡ください。平日夜・土日にオンラインでヒアリングします。</p>
+          </li>
+          <li class="m_flow_step">
+            <span class="m_flow_num">2</span>
+            <h3 class="m_flow_title">要件整理・お見積り</h3>
+            <p class="m_flow_text">伺った内容を要件と概算見積りに整理してご提示。納期もここで確定します。</p>
+          </li>
+          <li class="m_flow_step">
+            <span class="m_flow_num">3</span>
+            <h3 class="m_flow_title">デザイン</h3>
+            <p class="m_flow_text">構成案からデザイン案へ。ご確認いただきながら進めます。</p>
+          </li>
+          <li class="m_flow_step">
+            <span class="m_flow_num">4</span>
+            <h3 class="m_flow_title">実装</h3>
+            <p class="m_flow_text">コーディング・機能開発。毎週、進捗をご報告します。</p>
+          </li>
+          <li class="m_flow_step">
+            <span class="m_flow_num">5</span>
+            <h3 class="m_flow_title">公開・お引き渡し</h3>
+            <p class="m_flow_text">サーバーアップと動作確認。更新方法もレクチャーします。</p>
+          </li>
+        </ol>
+        <p class="top_flow_note">副業として稼働しているため、制作会社より納期に余裕をいただく場合があります。その分、納期は最初に正直にお伝えし、途中経過を毎週共有します。</p>
+      </div>
+    </section>
+
+    <!-- ========== Works（制作実績） ========== -->
     <section id="works" class="top_works">
       <div class="l_container">
         <p class="m_section-label">WORKS</p>
         <h2 class="m_section-title">制作実績</h2>
         <ul class="m_works">
-          <!-- TODO: 実績が増えたらカードを差し替え -->
-          <li class="m_work-card m_work-card__filled">
+          <li class="m_work-card">
             <a href="../works-rin-announcement-lp/index.html" class="m_work-card_link" target="_blank" rel="noopener">
               <span class="m_work-card_thumb" aria-hidden="true">
                 <span class="m_work-card_thumb-jp">凛</span>
                 <span class="m_work-card_thumb-en">RIN ANNOUNCEMENT</span>
               </span>
               <span class="m_work-card_body">
-                <span class="m_work-card_cat">LP制作 / HTML・CSS・JavaScript</span>
+                <span class="m_work-card_cat">デザイン提案例 / LP制作</span>
                 <span class="m_work-card_title">株主総会 司会サービス LP</span>
-                <span class="m_work-card_desc">上場企業向けの司会サービスを想定した、信頼感・品格を重視した縦長LP（架空案件）。</span>
+                <span class="m_work-card_desc">上場企業向けの司会サービスを想定した、信頼感・品格を重視した縦長LP。</span>
               </span>
             </a>
           </li>
-          <li class="m_work-card m_work-card__empty"><span class="m_work-card_label">準備中</span></li>
-          <li class="m_work-card m_work-card__empty"><span class="m_work-card_label">準備中</span></li>
         </ul>
-        <div class="top_works_more">
-          <a href="works.html" class="m_link-more">もっと見る</a>
-        </div>
       </div>
     </section>
 
-    <!-- ========== Service（概要） ========== -->
-    <section id="service" class="top_service">
+    <!-- ========== About（制作者について） ========== -->
+    <section id="about" class="top_about">
       <div class="l_container">
-        <p class="m_section-label">SERVICE</p>
-        <h2 class="m_section-title">サービス</h2>
-        <!-- TODO: サービス概要テキストに差し替え -->
-        <p class="top_service_lead">ご要望やご予算に合わせて、Webサイト制作からLP・機能開発まで柔軟に対応します。サービス内容・料金の詳細は準備中です。</p>
-        <div class="top_service_more">
-          <a href="service.html" class="m_link-more">詳しく見る</a>
+        <p class="m_section-label">ABOUT</p>
+        <h2 class="m_section-title">制作者について</h2>
+        <div class="top_about_body">
+          <div class="top_about_photo js_about-photo">
+            <!-- TODO(T-2): プロフィール写真を撮影後、img タグに差し替える（写真が入るまで公開しない） -->
+            <span class="top_about_photo-placeholder">写真</span>
+          </div>
+          <div class="top_about_text js_about-text">
+            <p>はじめまして、山原佑介です。IT企業で要件定義・設計などの上流工程と、AWSでの開発・運用を担当している現役エンジニアです。</p>
+            <p>制作会社の品質を、中小企業やお店が手の届く価格で。そんな想いで、個人でのWebサイト制作をお受けしています。</p>
+            <p>専門用語を使わずにお話しします。「こんなこと聞いていいのかな」という小さなご相談こそ、歓迎です。</p>
+            <dl class="top_about_info">
+              <div class="top_about_info_row">
+                <dt class="top_about_info_term">対応時間</dt>
+                <dd class="top_about_info_desc">平日夜・土日</dd>
+              </div>
+              <div class="top_about_info_row">
+                <dt class="top_about_info_term">対応エリア</dt>
+                <dd class="top_about_info_desc">対面でのお打ち合わせは首都圏のみ。その他の地域はオンラインで全国対応（要事前相談）</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== Contact ========== -->
+    <!-- ========== FAQ（よくあるご質問） ========== -->
+    <section id="faq" class="top_faq">
+      <div class="l_container">
+        <p class="m_section-label">FAQ</p>
+        <h2 class="m_section-title">よくあるご質問</h2>
+        <ul class="m_faq-list">
+          <li class="m_faq js_faq">
+            <button type="button" class="m_faq_q js_faq-q" aria-expanded="false">副業とのことですが、対応が遅くなりませんか？</button>
+            <div class="m_faq_a-wrapper js_faq-a">
+              <div class="m_faq_a">
+                <p>ご連絡には原則24時間以内に返信します。制作中は毎週進捗をご報告し、納期はご契約前に確定してからお約束します。</p>
+              </div>
+            </div>
+          </li>
+          <li class="m_faq js_faq">
+            <button type="button" class="m_faq_q js_faq-q" aria-expanded="false">納期はどのくらいですか？</button>
+            <div class="m_faq_a-wrapper js_faq-a">
+              <div class="m_faq_a">
+                <!-- TODO(T-3): 納期実数の確定（暫定値: 1.5〜2ヶ月） -->
+                <p>規模により変わりますが、コーポレートサイトで目安1.5〜2ヶ月です。お急ぎの場合は事前にご相談ください。</p>
+              </div>
+            </div>
+          </li>
+          <li class="m_faq js_faq">
+            <button type="button" class="m_faq_q js_faq-q" aria-expanded="false">何を用意すればいいですか？</button>
+            <div class="m_faq_a-wrapper js_faq-a">
+              <div class="m_faq_a">
+                <p>特に何もなくて大丈夫です。ヒアリングの中で一緒に整理していきます。会社案内やメニュー表などがあれば、より具体的なご提案ができます。</p>
+              </div>
+            </div>
+          </li>
+          <li class="m_faq js_faq">
+            <button type="button" class="m_faq_q js_faq-q" aria-expanded="false">公開後の更新はどうなりますか？</button>
+            <div class="m_faq_a-wrapper js_faq-a">
+              <div class="m_faq_a">
+                <p>WordPressで構築した場合はご自身で更新いただけます。更新の代行や保守も、必要なときだけのスポットで承ります。</p>
+              </div>
+            </div>
+          </li>
+          <li class="m_faq js_faq">
+            <button type="button" class="m_faq_q js_faq-q" aria-expanded="false">支払い方法・タイミングは？</button>
+            <div class="m_faq_a-wrapper js_faq-a">
+              <div class="m_faq_a">
+                <p>着手金50%・納品時50%の2回払い、銀行振込でお願いしています。</p>
+              </div>
+            </div>
+          </li>
+          <li class="m_faq js_faq">
+            <button type="button" class="m_faq_q js_faq-q" aria-expanded="false">直接会って相談できますか？</button>
+            <div class="m_faq_a-wrapper js_faq-a">
+              <div class="m_faq_a">
+                <p>首都圏は対面でのお打ち合わせが可能です。その他の地域はオンライン（Zoomなど）で全国対応しています。事前にご相談ください。</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== Contact（無料相談） ========== -->
     <section id="contact" class="top_contact">
       <div class="l_container">
         <p class="m_section-label m_section-label__light">CONTACT</p>
-        <h2 class="m_section-title m_section-title__light">お問い合わせ</h2>
+        <h2 class="m_section-title m_section-title__light">無料相談</h2>
+        <p class="top_contact_lead">「まだ何も決まっていない」段階のご相談も歓迎です。営業のご連絡は行いません。</p>
         <form class="m_form js_form" action="https://api.web3forms.com/submit" method="POST">
           <!-- Web3Forms 設定 -->
           <input type="hidden" name="access_key" value="422e645c-e809-4c3a-91f1-bcff95c2355c">
-          <input type="hidden" name="subject" value="ポートフォリオからのお問い合わせ">
+          <input type="hidden" name="subject" value="LPからの無料相談">
           <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
           <div class="m_form_field">
@@ -182,10 +386,29 @@
             <input class="m_form_input" type="email" id="email" name="email" required>
           </div>
           <div class="m_form_field">
-            <label class="m_form_label" for="message">お問い合わせ内容 <span aria-hidden="true">*</span></label>
-            <textarea class="m_form_input m_form_input__textarea" id="message" name="message" rows="6" required></textarea>
+            <label class="m_form_label" for="topic">ご相談内容 <span aria-hidden="true">*</span></label>
+            <select class="m_form_input m_form_input__select" id="topic" name="ご相談内容" required>
+              <option value="" selected disabled>選択してください</option>
+              <option value="コーポレートサイト">コーポレートサイトを作りたい</option>
+              <option value="採用サイト">採用サイトを作りたい</option>
+              <option value="店舗サイト">店舗（飲食店など）のサイトを作りたい</option>
+              <option value="機能追加">既存サイトに機能を追加したい</option>
+              <option value="未定">その他・まだ決まっていない</option>
+            </select>
           </div>
-          <button type="submit" class="m_btn m_btn__fill m_btn__light m_btn__block js_form-submit">送信する</button>
+          <div class="m_form_field">
+            <label class="m_form_label" for="timing">ご希望時期</label>
+            <select class="m_form_input m_form_input__select" id="timing" name="ご希望時期">
+              <option value="未定" selected>未定</option>
+              <option value="すぐに">すぐに</option>
+              <option value="1〜3ヶ月以内">1〜3ヶ月以内</option>
+            </select>
+          </div>
+          <div class="m_form_field">
+            <label class="m_form_label" for="message">補足・ご質問（空欄でも大丈夫です）</label>
+            <textarea class="m_form_input m_form_input__textarea" id="message" name="message" rows="5"></textarea>
+          </div>
+          <button type="submit" class="m_btn m_btn__cta m_btn__block js_form-submit">無料相談を送信する</button>
           <p class="m_form_note js_form-note" hidden></p>
         </form>
       </div>
@@ -195,6 +418,7 @@
 
   <!-- ========== フッター ========== -->
   <footer class="l_footer">
+    <!-- TODO(T-6): プライバシーポリシーの要否確認後、リンクを追加 -->
     <p class="l_footer_copy">&copy; 2026 Yusuke Yamahara</p>
   </footer>
 
